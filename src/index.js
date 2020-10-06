@@ -8,6 +8,8 @@ app.set("view engine", "hbs");
 var staticPath = path.join(__dirname, "../public");
 app.use(express.static(staticPath));
 
+const port = process.env.PORT || 3000
+
 app.get("", (req, res) => {
   var queryString = req.query;
 
@@ -244,6 +246,6 @@ app.get("/data", (req, res) => {
   res.send(data);
 });
 
-app.listen("3000", () => {
+app.listen(port, () => {
   console.log("Application is up and running");
 });
